@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using UnityEngine;
-using KSP;
+﻿using ContractConfigurator;
+using ContractConfigurator.Util;
 using Contracts;
 using Strategies;
-using Strategies.Effects;
-using ContractConfigurator.Util;
-using ContractConfigurator;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
 
 namespace Strategia
 {
@@ -177,14 +173,14 @@ namespace Strategia
                 float lowerValue = Parent.GetLeveledListItem(lowerValues);
                 float upperValue = Parent.GetLeveledListItem(upperValues);
 
-                multiplier = (float)(random.NextDouble() * (upperValue - lowerValue) + lowerValue);
+                multiplier = (float)((random.NextDouble() * (upperValue - lowerValue)) + lowerValue);
                 valueCache[hash] = multiplier;
             }
             multiplier = valueCache[hash];
 
             foreach (Currency currency in currencies)
             {
-                float delta = (float)Math.Round(multiplier * qry.GetInput(currency) - qry.GetInput(currency));
+                float delta = (float)Math.Round((multiplier * qry.GetInput(currency)) - qry.GetInput(currency));
                 if (delta != 0.0f)
                 {
                     qry.AddDelta(currency, delta);

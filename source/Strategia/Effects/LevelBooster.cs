@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using UnityEngine;
-using KSP;
+﻿using ContractConfigurator;
 using KSP.UI.Screens.Flight;
 using Strategies;
-using Strategies.Effects;
-using ContractConfigurator;
+using System;
+using System.Collections.Generic;
 
 namespace Strategia
 {
@@ -92,8 +86,8 @@ namespace Strategia
             // Get the level
             int level = Parent.GetLeveledListItem<int>(levels);
 
-            if (string.IsNullOrEmpty(trait) || pcm.experienceTrait.Config.Name == trait &&
-                gender == null || pcm.gender == gender)
+            if (string.IsNullOrEmpty(trait) || (pcm.experienceTrait.Config.Name == trait &&
+                gender == null) || pcm.gender == gender)
             {
                 // Crew portraits break down if they have to display more than five stars, complicating EVA immensely.
                 // To prevent this, we have to limit the total level to 5.

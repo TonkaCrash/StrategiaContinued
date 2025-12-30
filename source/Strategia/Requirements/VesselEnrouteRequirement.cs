@@ -1,13 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using UnityEngine;
-using KSP;
-using KSPAchievements;
+﻿using ContractConfigurator;
 using Strategies;
-using Strategies.Effects;
-using ContractConfigurator;
 
 namespace Strategia
 {
@@ -46,8 +38,8 @@ namespace Strategia
             {
                 if (manned != null)
                 {
-                    if (manned.Value && vessel.GetCrewCount() == 0 ||
-                        !manned.Value && vessel.GetCrewCount() > 0)
+                    if ((manned.Value && vessel.GetCrewCount() == 0) ||
+                        (!manned.Value && vessel.GetCrewCount() > 0))
                     {
                         continue;
                     }

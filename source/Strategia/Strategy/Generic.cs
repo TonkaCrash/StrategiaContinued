@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using UnityEngine;
-using KSP;
-using Strategies;
-
-namespace Strategia
+﻿namespace Strategia
 {
     public class AstronautTrainingProgram1 : UpgradeableStrategy { }
     public class AstronautTrainingProgram2 : UpgradeableStrategy { }

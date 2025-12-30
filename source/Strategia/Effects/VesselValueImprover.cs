@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using UnityEngine;
-using KSP;
-using CompoundParts;
-using Contracts;
-using Strategies;
-using Strategies.Effects;
+﻿using CompoundParts;
 using ContractConfigurator;
+using Strategies;
+using System.Collections.Generic;
+using UnityEngine;
 
 namespace Strategia
 {
@@ -131,7 +124,7 @@ namespace Strategia
                 return;
             }
 
-            Debug.Log("Strategia: VesselValueImprover.HandleVessel");
+            //Debug.Log("Strategia: VesselValueImprover.HandleVessel");
 
             // Check for our trait
             bool needsIncrease = false;
@@ -171,7 +164,7 @@ namespace Strategia
                                         SetValue(p.partInfo.name + "|" + engine.engineID, needsIncrease, ref value);
                                         values[1] = value.ToString("F1");
                                         newNode.AddValue(pair.name, string.Join(" ", values));
-                                        Debug.Log("Setting ISP of " + p + " from " + oldValue + " to " + value);
+                                        //Debug.Log("Setting ISP of " + p + " from " + oldValue + " to " + value);
                                     }
                                     else
                                     {
@@ -222,7 +215,7 @@ namespace Strategia
                 originalValues[name] = value;
             }
             value = originalValues[name] * (increaseRequired ? multiplier : 1.0f);
-            Debug.Log("Strategia.VesselValueImprover.SetValue]: " + name + ":" + originalValues[name].ToString() + " x " + (increaseRequired ? multiplier : 1.0f).ToString() + " = " + value.ToString() );
+            //Debug.Log("Strategia.VesselValueImprover.SetValue]: " + name + ":" + originalValues[name].ToString() + " x " + (increaseRequired ? multiplier : 1.0f).ToString() + " = " + value.ToString());
         }
     }
 }

@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using UnityEngine;
-using KSP;
-using Strategies;
+﻿using Strategies;
 using Strategies.Effects;
+using System;
 
 namespace Strategia
 {

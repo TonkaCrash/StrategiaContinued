@@ -1,14 +1,8 @@
-﻿using System;
+﻿using ContractConfigurator;
+using Strategies;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
-using System.Text;
-using UnityEngine;
-using KSP;
-using Contracts;
-using Strategies;
-using Strategies.Effects;
-using ContractConfigurator;
 
 namespace Strategia
 {
@@ -90,7 +84,7 @@ namespace Strategia
             float multiplier = Parent.GetLeveledListItem(multipliers);
             foreach (Currency currency in currencies)
             {
-                qry.AddDelta(currency, multiplier * qry.GetInput(currency) - qry.GetInput(currency));
+                qry.AddDelta(currency, (multiplier * qry.GetInput(currency)) - qry.GetInput(currency));
             }
         }
     }

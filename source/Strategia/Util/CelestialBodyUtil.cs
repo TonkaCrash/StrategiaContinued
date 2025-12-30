@@ -1,10 +1,6 @@
-﻿using System;
+﻿using ContractConfigurator;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using UnityEngine;
-using KSP;
-using ContractConfigurator;
 
 namespace Strategia
 {
@@ -113,6 +109,5 @@ namespace Strategia
             }
             return result;
         }
-
     }
 }

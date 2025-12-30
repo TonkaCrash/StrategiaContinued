@@ -1,11 +1,9 @@
-﻿using System;
+﻿using ContractConfigurator;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Text;
 using UnityEngine;
-using KSP;
-using ContractConfigurator;
 
 namespace Strategia
 {
@@ -212,7 +210,7 @@ namespace Strategia
 
             return newNode;
         }
-        
+
         public IEnumerable<string> ExpandList(string list, CelestialBody body)
         {
             if (list == "@bodies")

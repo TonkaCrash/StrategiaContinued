@@ -1,12 +1,7 @@
-﻿using System;
+﻿using Strategies;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Text.RegularExpressions;
-using UnityEngine;
-using KSP;
-using Strategies;
 
 namespace Strategia
 {
@@ -38,7 +33,7 @@ namespace Strategia
         }
 
         private bool isInitialized = false;
-        private bool strategiesNeedRedraw  = false;
+        private bool strategiesNeedRedraw = false;
         private UpgradeableStrategy conflictStrategy;
 
         /// <summary>
@@ -80,7 +75,6 @@ namespace Strategia
             {
                 // Remove the other strategy
                 conflictStrategy.ForceDeactivate();
-
 
                 // Force a redraw, but not until the next update
                 strategiesNeedRedraw = true;

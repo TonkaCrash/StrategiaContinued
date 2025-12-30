@@ -1,14 +1,9 @@
-﻿using System;
+﻿using ContractConfigurator;
+using Strategies;
+using Strategies.Effects;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using UnityEngine;
-using KSP;
-using KSPAchievements;
-using Strategies;
-using Strategies.Effects;
-using ContractConfigurator;
 
 namespace Strategia
 {
@@ -34,7 +29,7 @@ namespace Strategia
 
             List<CelestialBody> includeBodies = ConfigNodeUtil.ParseValue<List<CelestialBody>>(node, "includeBody", new List<CelestialBody>());
             List<CelestialBody> excludeBodies = ConfigNodeUtil.ParseValue<List<CelestialBody>>(node, "excludeBody", new List<CelestialBody>());
-            
+
             // Add the included bodies
             if (includeBodies.Any())
             {

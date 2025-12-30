@@ -1,13 +1,9 @@
-﻿using System;
+﻿using ContractConfigurator;
+using Strategies;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
-using System.Text;
 using UnityEngine;
-using KSP;
-using Strategies;
-using Strategies.Effects;
-using ContractConfigurator;
 
 namespace Strategia
 {
@@ -150,7 +146,7 @@ namespace Strategia
             lastCheck = ConfigNodeUtil.ParseValue<float>(node, "lastCheck");
             reputationGiven = ConfigNodeUtil.ParseValue<float>(node, "reputationGiven");
         }
-        
+
         public void DoCheck()
         {
             // Check if it's time to give reputation

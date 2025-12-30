@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using UnityEngine;
-using KSP;
+﻿using ContractConfigurator;
+using ContractConfigurator.Util;
 using Contracts;
 using Strategies;
-using Strategies.Effects;
-using ContractConfigurator;
-using ContractConfigurator.Util;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
 
 namespace Strategia
 {
@@ -86,7 +82,7 @@ namespace Strategia
             // Add any child groups
             foreach (string type in contractTypes.ToList())
             {
-                ContractGroup group = ContractGroup.AllGroups.Where(g => g!= null && g.name == type).FirstOrDefault();
+                ContractGroup group = ContractGroup.AllGroups.Where(g => g != null && g.name == type).FirstOrDefault();
                 if (group != null)
                 {
                     foreach (ContractGroup child in ChildGroups(group))
@@ -183,12 +179,12 @@ namespace Strategia
                     }
 
                     // Check contract values - allow zero values because on reward funds/science/rep all come in seperately 
-                    if (qry.reason == TransactionReasons.ContractAdvance &&
-                            contract.FundsAdvance == funds && science == 0.0 && rep == 0.0 ||
-                        qry.reason == TransactionReasons.ContractPenalty &&
-                            contract.FundsFailure == funds && science == 0.0 && contract.ReputationFailure == rep ||
-                        qry.reason == TransactionReasons.ContractReward &&
-                            (contract.FundsCompletion == funds || funds == 0) && (contract.ScienceCompletion == science || (int)science == 0) && (contract.ReputationCompletion == rep || (int)rep == 0))
+                    if ((qry.reason == TransactionReasons.ContractAdvance &&
+                            contract.FundsAdvance == funds && science == 0.0 && rep == 0.0) ||
+                        (qry.reason == TransactionReasons.ContractPenalty &&
+                            contract.FundsFailure == funds && science == 0.0 && contract.ReputationFailure == rep) ||
+                        (qry.reason == TransactionReasons.ContractReward &&
+                            (contract.FundsCompletion == funds || funds == 0) && (contract.ScienceCompletion == science || (int)science == 0) && (contract.ReputationCompletion == rep || (int)rep == 0)))
                     {
                         foundMatch = true;
                         match = contract;
@@ -198,10 +194,10 @@ namespace Strategia
                     // Check parameter values
                     foreach (ContractParameter parameter in contract.AllParameters)
                     {
-                        if (qry.reason == TransactionReasons.ContractPenalty &&
-                                parameter.FundsFailure == funds && science == 0.0 && parameter.ReputationFailure == rep ||
-                            qry.reason == TransactionReasons.ContractReward &&
-                                (parameter.FundsCompletion == funds || funds == 0.0) && (parameter.ScienceCompletion == science || science == 0.0) && (parameter.ReputationCompletion == rep || rep == 0.0))
+                        if ((qry.reason == TransactionReasons.ContractPenalty &&
+                                parameter.FundsFailure == funds && science == 0.0 && parameter.ReputationFailure == rep) ||
+                            (qry.reason == TransactionReasons.ContractReward &&
+                                (parameter.FundsCompletion == funds || funds == 0.0) && (parameter.ScienceCompletion == science || science == 0.0) && (parameter.ReputationCompletion == rep || rep == 0.0)))
                         {
                             foundMatch = true;
                             match = contract;
@@ -249,7 +245,7 @@ namespace Strategia
             float multiplier = Parent.GetLeveledListItem(multipliers);
             foreach (Currency currency in currencies)
             {
-                qry.AddDelta(currency, multiplier * qry.GetInput(currency) - qry.GetInput(currency));
+                qry.AddDelta(currency, (multiplier * qry.GetInput(currency)) - qry.GetInput(currency));
             }
         }
 

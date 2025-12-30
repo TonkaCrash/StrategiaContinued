@@ -1,14 +1,8 @@
-﻿using System;
+﻿using ContractConfigurator;
+using ContractConfigurator.Util;
+using Strategies;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
-using System.Text;
-using UnityEngine;
-using KSP;
-using Strategies;
-using Strategies.Effects;
-using ContractConfigurator;
-using ContractConfigurator.Util;
 
 namespace Strategia
 {
@@ -70,13 +64,13 @@ namespace Strategia
             bool isKSC = biome != null && biome.IsKSC();
             if (KSCScienceMultiplier > 0.0f && isKSC)
             {
-                float delta = KSCScienceMultiplier * amount - amount;
+                float delta = (KSCScienceMultiplier * amount) - amount;
                 ResearchAndDevelopment.Instance.AddScience(delta, TransactionReasons.Strategies);
                 CurrencyPopup.Instance.AddPopup(Currency.Science, delta, TransactionReasons.Strategies, Parent.Config.Title, true);
             }
             else if (nonKSCScienceMultiplier > 0.0f && !isKSC)
             {
-                float delta = nonKSCScienceMultiplier * amount - amount;
+                float delta = (nonKSCScienceMultiplier * amount) - amount;
                 ResearchAndDevelopment.Instance.AddScience(delta, TransactionReasons.Strategies);
                 CurrencyPopup.Instance.AddPopup(Currency.Science, delta, TransactionReasons.Strategies, Parent.Config.Title, true);
             }

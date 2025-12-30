@@ -1,17 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
-using KSP;
+﻿using ContractConfigurator;
+using ContractConfigurator.Util;
 using KSP.UI.Screens;
 using Strategies;
-using ContractConfigurator;
-using ContractConfigurator.Util;
-using CustomBarnKit;
+using System;
+using UnityEngine;
 
 namespace Strategia
 {
@@ -109,7 +101,6 @@ namespace Strategia
                         }
                     }
                 }
-
             }
         }
     }

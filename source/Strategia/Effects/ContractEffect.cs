@@ -1,13 +1,10 @@
-﻿using System;
+﻿using ContractConfigurator;
+using Contracts;
+using KSP.UI.Screens;
+using Strategies;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using UnityEngine;
-using KSP;
-using KSP.UI.Screens;
-using Contracts;
-using Strategies;
-using ContractConfigurator;
 
 namespace Strategia
 {
@@ -181,7 +178,7 @@ namespace Strategia
         {
             if (!normalDeactivation)
             {
-                if (failureFunds  > 0.0)
+                if (failureFunds > 0.0)
                 {
                     Funding.Instance.AddFunds(-failureFunds, TransactionReasons.Strategies);
                 }

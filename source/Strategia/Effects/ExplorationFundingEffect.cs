@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using UnityEngine;
-using KSP;
+﻿using ContractConfigurator;
+using ContractConfigurator.Util;
 using KSP.UI.Screens;
 using Strategies;
-using Strategies.Effects;
-using ContractConfigurator;
-using ContractConfigurator.Util;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Strategia
 {

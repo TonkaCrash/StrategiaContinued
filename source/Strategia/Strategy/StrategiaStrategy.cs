@@ -1,13 +1,9 @@
-﻿using System;
+﻿using KSP.UI.Screens;
+using Strategies;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Text.RegularExpressions;
 using UnityEngine;
-using KSP;
-using Strategies;
-using KSP.UI.Screens;
 
 namespace Strategia
 {
@@ -41,7 +37,7 @@ namespace Strategia
                 IMultipleEffects multiEffect = effect as IMultipleEffects;
                 if (multiEffect != null)
                 {
-                    foreach (string effectText in (multiEffect.EffectText()))
+                    foreach (string effectText in multiEffect.EffectText())
                     {
                         if (!string.IsNullOrEmpty(effectText))
                         {

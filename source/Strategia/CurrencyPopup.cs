@@ -1,13 +1,9 @@
-﻿using System;
+﻿using KSP.UI;
+using KSP.UI.Screens;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
-using System.Text;
 using UnityEngine;
-using KSP;
-using KSP.UI;
-using KSP.UI.Screens;
-using Strategies;
 using Upgradeables;
 
 namespace Strategia
@@ -232,14 +228,14 @@ namespace Strategia
                         float verticalRatio = 1.0f; // TODO - should be based on UI size
                         if (popup.currency == Currency.Funds)
                         {
-                            popup.screenPosition.x = (float)Screen.width / 2.0f - 220.0f / verticalRatio;
+                            popup.screenPosition.x = ((float)Screen.width / 2.0f) - (220.0f / verticalRatio);
                         }
                         else if (popup.currency == Currency.Reputation)
                         {
                             popup.screenPosition.x = (float)Screen.width / 2.0f;
                         }
                         else
-                            popup.screenPosition.x = (float)Screen.width / 2.0f + 220.0f / verticalRatio;
+                            popup.screenPosition.x = ((float)Screen.width / 2.0f) + (220.0f / verticalRatio);
                         {
                         }
                     }
@@ -273,12 +269,12 @@ namespace Strategia
                 string text = CurrencySymbol(popup.currency) + (popup.amount >= 0.0 ? " +" : " ") + popup.amount.ToString(format) + " (" + popup.reason + ")";
                 Color currencyColor = CurrencyColor(popup.currency, popup.amount);
                 Color backgroundColor = BackgroundColor(currencyColor);
-                foreach (int x in new int[] {-2, 2, 0})
+                foreach (int x in new int[] { -2, 2, 0 })
                 {
-                    foreach (int y in new int[] {-2, 2, 0})
+                    foreach (int y in new int[] { -2, 2, 0 })
                     {
                         // Setup styles, position and alpha
-                        Color c = (x == 0 && y == 0) ?  currencyColor : backgroundColor;
+                        Color c = (x == 0 && y == 0) ? currencyColor : backgroundColor;
                         popupStyle.normal.textColor = new Color(c.r, c.g, c.b, alpha);
                         Rect rect = new Rect(origin.xMin + x, origin.yMin + y, origin.width, origin.height);
 
@@ -418,11 +414,11 @@ namespace Strategia
         {
             // Calculate luminance
             double l =
-                0.2126 * (c.r <= 0.03928 ? c.r / 12.92 : Math.Pow((c.r + 0.055) / 1.055, 2.4)) +
-                0.7152 * (c.g <= 0.03928 ? c.g / 12.92 : Math.Pow((c.g + 0.055) / 1.055, 2.4)) +
-                0.0722 * (c.b <= 0.03928 ? c.b / 12.92 : Math.Pow((c.b + 0.055) / 1.055, 2.4));
+                (0.2126 * (c.r <= 0.03928 ? c.r / 12.92 : Math.Pow((c.r + 0.055) / 1.055, 2.4))) +
+                (0.7152 * (c.g <= 0.03928 ? c.g / 12.92 : Math.Pow((c.g + 0.055) / 1.055, 2.4))) +
+                (0.0722 * (c.b <= 0.03928 ? c.b / 12.92 : Math.Pow((c.b + 0.055) / 1.055, 2.4)));
 
-            return (l > 0.1158 ? Color.black : Color.gray);
+            return l > 0.1158 ? Color.black : Color.gray;
         }
     }
 }
